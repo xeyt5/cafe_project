@@ -1,29 +1,43 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'index.css' %}">
     <title>Inicio</title>
 </head>
 <body>
     <nav>
-        <ul>
+        <ul class="nav">
             <li><a href="#Inicio">Inicio</a></li>
             <li><a href="#acerca">acerca de</a></li>
             <li><a href="#productos">productos</a></li>
             <li><a href="#contactanos">contactanos</a></li>
         </ul>
     </nav>
-    <h1 id="Inicio">cafeteria dar</h1>
+    <header>
+        <h1>Bienvenidos a nuestra pagina</h1>
+        <div class="slides">
+            <input type="radio" name="radio-btn" id="radio1" checked>
+            <input type="radio" name="radio-btn" id="radio2">
+            <input type="radio" name="radio-btn" id="radio3">
+            <input type="radio" name="radio-btn" id="radio4">
+            <div class="slide first"><img src="https://static.vecteezy.com/system/resources/previews/003/607/477/non_2x/coffee-background-with-realistic-cup-of-coffee-vector.jpg" alt="Imagen 1"></div>
+        </div>
+    </header>
+    <aside>
 
-    
-    <h1 id="acerca">Conocenos</h1>
+    </aside>
+    <section>
 
+    </section>
+    <section>
 
-    <h1 id="productos">productos</h1>
+    </section>
+    <footer>
 
-
-    <h1 id="contactanos">contactanos</h1>
+    </footer>
 
 </body>
 </html>
