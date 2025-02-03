@@ -17,6 +17,7 @@
         </ul>
     </nav>
     <header>
+        
         <h1>Bienvenidos a nuestra pagina</h1>
         <div class="slides">
             <input type="radio" name="radio-btn" id="radio1" checked>
@@ -29,8 +30,24 @@
     <aside>
 
     </aside>
-    <section>
-
+    <section id="productos">
+        <h2>Nuestros Productos</h2>
+        <div id="productos-container">
+            {% if productos %}
+                {% for producto in productos %}
+                    <div class="producto">
+                        <h3>{{ producto.name }}</h3>
+                        <p>{{ producto.description }}</p>
+                        <p><strong>Precio:</strong> ${{ producto.price }}</p>
+                        <p><strong>Origen:</strong> {{ producto.region }}</p>
+                        <p><strong>Peso:</strong> {{ producto.weight }}g</p>
+                        <img src="{{ producto.image_url }}" alt="{{ producto.name }}" width="150">
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No hay productos disponibles en este momento.</p>
+            {% endif %}
+        </div>
     </section>
     <section>
 
