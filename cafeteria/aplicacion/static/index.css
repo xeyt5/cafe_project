@@ -1,10 +1,10 @@
 body{
-    background-color: #808080;
+    background-image: url(https://cdn.create.vista.com/api/media/small/104812028/stock-vector-brown-seamless-patterns-with-coffee-set);
     font-family:'Courier New', Courier, monospace;
 }
 
 nav{
-    background-color: black;
+    background-color: rgba(237, 238, 192);
     width: 100%;
     display:flex;
     justify-content: space-between;
@@ -14,7 +14,7 @@ nav{
 
 nav a{
     text-decoration: none;
-    color: aliceblue;
+    color: black;
 }
 
 .nav{
@@ -52,12 +52,12 @@ header{
     position: relative;
     text-align: center;
     overflow: hidden;
-    height: 400px;
+    height: 600px;
 }
 
 header h1{
     position: absolute;
-    color: teal;
+    color: rgb(214, 211, 240);
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
@@ -81,14 +81,48 @@ header h1{
     transition: opacity 1s ease-in-out;
 }
 
+.slide::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0)); /* Degradado de negro a transparente */
+    z-index: 1;
+}
+
 .slide img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    position: relative;
+    z-index: 0;
 }
 
-.slide.first{
-    opacity: 1;
+@keyframes carrusel {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    20% { opacity: 1; }
+    30% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* Asignar la animación a cada slide */
+.slide.first {
+    animation: carrusel 16s infinite; /* Duración total: 16s (4 slides * 4s cada uno) */
+}
+
+.slide.second {
+    animation: carrusel 16s infinite 4s; /* Retraso de 4s */
+}
+
+.slide.three {
+    animation: carrusel 16s infinite 8s; /* Retraso de 8s */
+}
+
+.slide.fourth {
+    animation: carrusel 16s infinite 12s; /* Retraso de 12s */
 }
 
 input[type="radio"]{
@@ -120,3 +154,41 @@ h2{
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.producto:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.producto-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.producto-nombre{
+    font-size: 1.5rem;
+    color: black;
+    margin-bottom: 10px;
+}
+
+.producto-descripcion{
+    font-size: 1.3rem;
+    color: black;
+    margin-bottom: 15px;
+}
+.producto-precio .producto-region .producto-peso{
+    font-size: 1.2rem;
+    text-align: center;
+    color: black;
+}
+.producto-precio{
+    font-weight: bold;
+    color: brown;
+}
+
+.mensaje-error{
+    text-align: center;
+    font-size: 1.2rem;
+    color: aliceblue;
+}
