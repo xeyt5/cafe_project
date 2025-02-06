@@ -1,15 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
     background-image: url(https://cdn.create.vista.com/api/media/small/104812028/stock-vector-brown-seamless-patterns-with-coffee-set);
     font-family:'Courier New', Courier, monospace;
 }
 
-nav{
-    background-color: rgba(237, 238, 192);
+.contenedor {
+    display: flex;
+    position: fixed;
     width: 100%;
-    display:flex;
-    justify-content: space-between;
-    padding: 0;
-    margin: 0;
+    justify-content: center;
+    background-color: #edeec0;
+    height: 100%px;
+    align-items: center;
+    z-index: 1000;
+  }
+
+
+nav ul{
+    display: flex;
+    list-style: none;
+    height: 100%;
+    width: 100%;
 }
 
 nav a{
@@ -21,38 +37,44 @@ nav a{
     display: flex;
 }
 
-nav ul {
-    list-style: none;
-    padding: 0;
+nav li{
+    display: inline-block;
     margin: 0;
-    display: flex;
+    background-color: transparent;
+    transition: background-color 0.1s ease;
+}
+
+nav ul li {
+    padding: 0px 20px;
     width: 100%;
-    justify-content: space-around;
-}
-
-.nav > li{
-     float: left;
-     width: 40%;
-     pointer-events: stroke;
-}
-
-nav ul li{
-    flex-grow: 1;
     text-align: center;
+    position: relative;
 }
 
-nav ul li a{
+nav ul li a {
     display: block;
+    padding: 15px;
     width: 100%;
-    padding: 15px 0;
+    text-decoration: none;
+    color: black;
     text-align: center;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 1;
 }
+
+
+li:hover {
+    background-color: sienna;
+    color: white;
+}
+
 
 header{
     position: relative;
     text-align: center;
     overflow: hidden;
-    height: 600px;
+    height: 650px;
 }
 
 header h1{
@@ -78,7 +100,7 @@ header h1{
     width: 100%;
     height: 100%;
     opacity: 0;
-    transition: opacity 1s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
 }
 
 .slide::after{
@@ -129,10 +151,19 @@ input[type="radio"]{
     display: none;
 }
 
+#map {
+    width: 100%;
+    height: 400px; /* Asegúrate de que tenga una altura suficiente */
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+
+
 h2{
     text-align: center;
     font-size: 2.5em;
-    color: aliceblue;
+    color: white;
     margin-bottom: 20px;
 }
 

@@ -5,10 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
     <title>Inicio</title>
 </head>
 <body>
-    <nav>
+    <nav class="contenedor">
         <ul class="nav">
             <li><a href="#Inicio">Inicio</a></li>
             <li><a href="#acerca">acerca de</a></li>
@@ -16,7 +17,7 @@
             <li><a href="#contactanos">contactanos</a></li>
         </ul>
     </nav>
-    <header>
+    <header id="Inicio">
         <h1>CTeI coffe cafe que despierta sabor que conquista</h1>
         <div class="slides">
             <input type="radio" name="radio-btn" id="radio1" checked>
@@ -30,9 +31,15 @@
         </div>
     </header>
     <aside>
-
+        <div class="acerca-de">
+            <h2>¿Quiénes somos?</h2>
+            <h1>Mapa con OpenStreetMap y Leaflet</h1>
+            <div id="map"></div>
+        </div>
     </aside>
+    
     <section id="productos">
+        <br>
         <h2>Nuestros Productos</h2>
         <div id="productos-container">
             {% if productos %}
@@ -57,6 +64,20 @@
     <footer>
 
     </footer>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var map = L.map('map').setView([18.6144, -99.3186], 14);  // Centrar en Puente de Ixtla, Morelos
+    
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+    
+            L.marker([18.6144, -99.3186]).addTo(map)
+                .bindPopup('Café en Puente de Ixtla, Morelos')
+                .openPopup();
+        });
+    </script>    
 
 </body>
 </html>
