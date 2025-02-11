@@ -30,12 +30,22 @@
             <div class="slide fourth"><img src="https://perfectdailygrind.com/es/wp-content/uploads/sites/2/2019/11/Coffee-Quality-Cover.jpg" alt="Imagen 4"></div>
         </div>
     </header>
-    <aside>
+
+    <aside id="acerca_de">
         <div class="acerca-de">
+            <br><br>
             <h2>¿Quiénes somos?</h2>
-            <h1>Mapa con OpenStreetMap y Leaflet</h1>
+            <h1>Mapa de donde estamos ubicados</h1>
             <div id="map"></div>
         </div>
+        <div class="informacion">
+            <div class="info">
+                <p>En CTEI Coffé, el café no es solo una bebida, es una experiencia que desafía la realidad. Aquí, las leyes de la física se doblan a favor del sabor y la innovación. Nuestras máquinas de espresso funcionan con inteligencia artificial, asegurando que cada taza tenga el equilibrio perfecto de aroma y textura. La espuma de la leche no solo flota, sino que también responde al sonido de la música ambiental en 8D, creando ondas hipnóticas que convierten cada sorbo en un espectáculo visual.
+                <br><br><br>El Latte Holográfico cambia de color con cada sorbo, reflejando tu estado de ánimo y transportándote a un viaje de sabores desconocidos. El Cappuccino Anti-Gravedad juega con la suspensión molecular para mantener la espuma levitando sobre la taza. Si buscas un impulso de energía fuera de este mundo, nuestro Espresso Cuántico está diseñado para despertar hasta a los astronautas más cansados, con un balance perfecto entre intensidad y suavidad. <br>
+                </p>
+            </div>
+        </div>
+        <br><br><br>
     </aside>
     
     <section id="productos">
@@ -67,16 +77,25 @@
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            var map = L.map('map').setView([18.6144, -99.3186], 14);  // Centrar en Puente de Ixtla, Morelos
-    
+            var map = L.map('map', {
+                center: [18.6144, -99.3186], 
+                zoom: 20,
+                dragging: false,          // Bloquea el arrastre del mapa
+                scrollWheelZoom: false,   // Bloquea el zoom con la rueda del mouse
+                doubleClickZoom: false,   // Bloquea el zoom con doble clic
+                touchZoom: false,         // Bloquea el zoom táctil en móviles
+                zoomControl: false        // Oculta los controles de zoom
+            });
+        
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
-    
+        
             L.marker([18.6144, -99.3186]).addTo(map)
                 .bindPopup('Café en Puente de Ixtla, Morelos')
                 .openPopup();
         });
+        
     </script>    
 
 </body>
