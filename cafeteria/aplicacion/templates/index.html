@@ -12,9 +12,9 @@
     <nav class="contenedor">
         <ul class="nav">
             <li><a href="#Inicio">Inicio</a></li>
-            <li><a href="#acerca">acerca de</a></li>
+            <li><a href="#acerca_de">acerca de</a></li>
             <li><a href="#productos">productos</a></li>
-            <li><a href="#contactanos">contactanos</a></li>
+            <li><a href="#contacta">contactanos</a></li>
         </ul>
     </nav>
     <header id="Inicio">
@@ -68,8 +68,25 @@
             {% endif %}
         </div>
     </section>
-    <section>
-
+    <section id="contacta">
+        <div class="contactanos">
+            <div class="contactanos_contenedor">
+                <h2>Contáctanos</h2>
+                    <form action="{% url 'enviar_mensaje' %}" method="POST">
+                        {% csrf_token %}
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    
+                        <label for="email">Correo Electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    
+                        <button type="submit">Enviar</button>
+                    </form>
+            </div>
+        </div>
     </section>
     <footer>
 
@@ -99,4 +116,12 @@
     </script>    
 
 </body>
+{% if messages %}
+    <div>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+{% endif %}
+
 </html>

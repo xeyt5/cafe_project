@@ -20,5 +20,6 @@ from aplicacion import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='inicio'),
+    path('', views.index, name='index'),  # Ruta para la página principal
+    path('contacto/', views.enviar_mensaje, name='enviar_mensaje'),
 ]
